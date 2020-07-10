@@ -1,4 +1,4 @@
-#MyMoney Project Roadmap:
+title: "MyMoney Project Roadmap:"
 1. Look into repositories or tutorials related to my app idea [X]
   - [Tutorial](https://youtu.be/sYBDJ15dNVc) shows how to initialize, update and view items in a database using sqlite3 for tracking expenses
 2. Create my own repository [X]
