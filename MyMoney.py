@@ -54,7 +54,19 @@ def view(category=None):
     
     return total_amount, results
 
-init()
 
-print(view())
+#Main loop for user input
+while True:
+        print("What would you like to do?")
+        print("1 - Enter an expense\n2 - View expenses for this month\n3 - Update on spending habits\nQ - Quit")
+        ans = input(":")
+
+        if ans == "1":
+            log()
+        elif ans == "2":
+            print(view())
+        elif ans == "3":
+            compare()
+        elif ans.lower() == "q":
+            break
 
