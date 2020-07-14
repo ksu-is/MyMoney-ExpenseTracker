@@ -62,9 +62,14 @@ while True:
         ans = input(":")
 
         if ans == "1":
-            log()
+            cost = input('What is the amount of the expense?')
+            cat = input('What is the category of the expense?')
+            msg = input('What is the expense for?')
+            log(cost,cat,msg)
         elif ans == "2":
-            print(view())
+            print('Enter what category of expenses you would like to view or press enter to view all')
+            cat = input(':')
+            print(view(cat))
         elif ans == "3":
             compare()
         elif ans.lower() == "q":
