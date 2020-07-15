@@ -7,6 +7,7 @@
 5. Code the sqlite database functions from the tutorial [X]
 6. Test code and ensure it runs correctly [X]
 7. Add code to gather user input to update or view the database [X]
+    - Add code to confirm if the expense was saved to the database or not []
 8. Add code to record and view expenses by date and category []
 9. If time permits, add code to run analysis on spending habits []
 10. Schedule presentation time []
