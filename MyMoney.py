@@ -59,6 +59,30 @@ def view(category, date):
         print(expense)
     print('\nTotal:','$' + str(total_amount))
 
+def compare(comp_month):
+    from datetime import date
+    month = date.today().strftime("%Y-%m")
+    conn = sqlite3.connect("spent.db")
+    cur = conn.cursor()
+    sql = '''
+    select sum(amount) from expenses where date like'{}%'
+    '''.format(month)
+    sql2 = '''
+    select sum(amount) from expenses where date like'{}%'
+    '''.format(comp_month)
+    cur.execute(sql)
+    month_amount = cur.fetchone()[0]
+    cur.execute(sql2)
+    comp_month_amount = cur.fetchone()[0]
+    if comp_month_amount == None:
+        print('\nNo expenses recorded for that month')
+    elif month_amount > comp_month_amount:
+        percent = ((month_amount / comp_month_amount) - 1) * 100
+        print('\nSo far your spending is already up',str(percent) + '% this month compared to', comp_month)
+    else:
+        percent = (1 - (month_amount / comp_month_amount)) * 100
+        print('\nSo far your spending is down',str(percent) + '% this month compared to', comp_month)
+
 #Welcome message
 print("\nWelcome to MyMoney Expense Tracker!")
 print("This app allows you to record and view your spending habits to help you become a more conscious spender!")
@@ -81,7 +105,8 @@ while True:
             print()
             view(category,date)
         elif ans == "3":
-            compare()
+            comp_month = input('\nWhat month would you like to compare this months spending to? (yyyy-mm)\n:')
+            compare(comp_month)
         elif ans.lower() == "q":
             print('Goodbye!\n')
             break
